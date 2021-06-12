@@ -1,0 +1,28 @@
+*
+{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	font-family: "Open Sans",sans-serif;
+	color: black;
+}
+
+body
+{
+  background-color: #e6f9ff;
+}
+
+.notExist{
+    display: flex;
+    flex-direction: column;
+}
+
+.notExist div{
+    align-self: center;
+    justify-content: center;
+}
+
+.table th{
+    padding: 5px;
+}

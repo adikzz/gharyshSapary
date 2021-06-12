@@ -1,0 +1,40 @@
+{% extends "main/layout.html" %}
+{% block title %}Main page{% endblock %}
+{%block body%}
+    {% if users %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">username</th>
+                <th scope="col">full_name</th>
+                <th scope="col">password</th>
+                <th scope="col">updated_at</th>
+                <th scope="col">created_at</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <th>{{user.id}}</th>
+                    <th>{{user.username}}</th>
+                    <th>{{user.full_name}}</th>
+                    <th>{{user.password}}</th>
+                    <th>{{user.updated_at}}</th>
+                    <th>{{user.created_at}}</th>
+                    <th><a href="{% url 'main:update' user.id %}">Update</a></th>
+                    <th><a href="{% url 'main:delete' user.id %}">Delete</a></th>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    {% else %}
+        <div class="notExist">
+            <div><h1>There's nothing to show yet..</h1></div>
+        </div>
+    {% endif %}
+        <div><a href="{% url 'main:create' %}">Add a new User</a></div>
+{%endblock%}
